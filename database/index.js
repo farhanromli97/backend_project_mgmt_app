@@ -6,11 +6,11 @@ const {Pool} = pkg;
 
 
 const config = {
-    host: "db.eoqcecvkbfqrxchsehem.supabase.co",
+    host: "db.cxsqlpmmmzlthsvvexcq.supabase.co",
     port: 5432,
     database: "postgres",
     user: "postgres",
-    password: "iFls2AfofC26rG8u",
+    password: "PecPqrtlnlWIEh4j",
 };
 
 const pool = new Pool(config);
