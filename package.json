@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "npx nodemon index.js"
+    "dev": "npx nodemon -r dotenv/config index.js",
+    "start": "npm -r dotenv/config index.js"
   },
   "author": "",
   "license": "ISC",
