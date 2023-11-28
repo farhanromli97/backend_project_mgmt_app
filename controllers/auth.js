@@ -19,21 +19,26 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     try {
-        console.log(req)
         const {email, password} = req.body
-        console.log("testtest", email, password)
         const resDB = await query("SELECT * FROM users where email = $1", [email])
         if (resDB.rowCount === 0){
             res.status(401).json({message: "Wrong email or password"})
             return
         }
-
+        console.log("checkpoint 1")
         const user =  resDB.rows[0]
 
+        console.log("checkpoint 2")
 
         const isMatch = await bcrypt.compare(password, user.password)
+        console.log("checkpoint 3")
+
         if(isMatch){
+            console.log("checkpoint 4")
+
             const token = jwt.sign({id:user.id}, process.env.JWT_KEY)
+            console.log("checkpoint 5")
+
             res.status(200).json({message: "Login successful", data: user.username, token:token})
             return
         }else{
