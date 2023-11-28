@@ -36,7 +36,7 @@ const login = async (req, res) => {
         if(isMatch){
             console.log("checkpoint 4")
 
-            const token = jwt.sign({id:user.id}, process.env.JWT_KEY)
+            const token = jwt.sign({id:user.id}, process.env.JWT_SECRET)
             console.log("checkpoint 5")
 
             res.status(200).json({message: "Login successful", data: user.username, token:token})
